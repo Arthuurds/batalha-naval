@@ -1,72 +1,66 @@
-# Nome do Jogo
+# Batalha Naval
 
-Projeto final da disciplina de Introdução a Algoritmos/Programação, desenvolvido com Python e Pygame.
+Projeto final da disciplina de Introdução a Algoritmos/Programação, do curso de Engenharia de Software da PUC Minas (Coração Eucarístico), desenvolvido com **Python e Pygame**.
 
-Este repositório é um template para os grupos da disciplina. A proposta é começar com uma base funcional e evoluir o jogo ao longo do semestre.
+O jogo é uma versão da clássica Batalha Naval em que o jogador enfrenta o computador (CPU).
 
 ## Integrantes do grupo
 
-- Nome do integrante 1
-- Nome do integrante 2
-- Nome do integrante 3
-- Nome do integrante 4
+| Nome | Matrícula |
+|------|-----------|
+| Arthur Filipe Silva Dornas | 930592 |
+| Diego Emanuel Oliveira Marques | 931449 |
+| Wyatt Nicolas Sperber Lopes de Carvalho | 931271 |
+
+Engenharia de Software – 1º período – Noturno.
+
+## Descrição do jogo
+
+A tela mostra dois tabuleiros 10×10: à esquerda, o tabuleiro com a frota do jogador; à direita, o tabuleiro da CPU, cujos navios ficam escondidos. Antes da partida, o jogador posiciona seus navios (ou usa o posicionamento automático) e a CPU posiciona os dela aleatoriamente.
+
+Depois, os dois lados se alternam disparando em casas do tabuleiro adversário. A cada tiro o jogo indica se foi **água**, **acerto** ou se o navio foi **afundado**. A CPU tem dois níveis: no fácil ela atira ao acaso; no médio, depois de acertar um navio ela passa a atirar nas casas vizinhas até afundá-lo.
+
+## Objetivo do jogador
+
+Afundar todos os navios da CPU antes que ela afunde todos os seus, usando o menor número de tiros possível para entrar no ranking.
+
+## Regras do jogo
+
+- Cada lado tem 5 navios: porta-aviões (5 casas), encouraçado (4), cruzador (3), submarino (3) e destróier (2).
+- Os navios ficam na horizontal ou na vertical, não podem sair do tabuleiro nem se sobrepor.
+- O jogador começa atirando e depois os turnos se alternam.
+- Não é possível atirar duas vezes na mesma casa; o clique é ignorado e o turno continua.
+- Um navio afunda quando todas as suas casas são atingidas.
+- **Vitória:** afundar toda a frota da CPU. **Derrota:** ter toda a sua frota afundada.
+- Ao final são exibidos tiros, acertos e precisão; os melhores resultados vão para o ranking.
+
+## Controles
+
+| Ação | Comando |
+|------|---------|
+| Posicionar navio | Clique esquerdo no seu tabuleiro |
+| Girar navio (horizontal/vertical) | Tecla `R` ou clique direito |
+| Posicionamento automático | Tecla `A` |
+| Iniciar partida | `Enter` |
+| Atirar | Clique esquerdo em uma casa do tabuleiro da CPU |
+| Voltar ao menu / sair | `ESC` |
 
 ## Estrutura do projeto
 
 - `main.py`: ponto de entrada da aplicação.
-- `src/`: código-fonte principal do jogo (loop, regras, sprites e dados).
+- `src/`: código-fonte do jogo (loop, regras, sprites e dados).
 - `assets/`: imagens, fontes e sons.
-- `data/`: arquivos persistentes (recorde/ranking).
+- `data/`: arquivos persistentes (recorde e ranking).
 - `tests/`: testes unitários com `pytest`.
-- `docs/`: documentação do projeto, incluindo proposta inicial.
-
-## Descrição do jogo
-
-Descreva brevemente a ideia principal do jogo.
-
-Exemplo:
-
-> O jogo consiste em controlar um personagem que deve coletar moedas e evitar obstáculos. O jogador ganha pontos ao coletar itens e perde vidas ao colidir com obstáculos. A partida termina quando o tempo acaba ou quando o jogador perde todas as vidas.
-
-## Objetivo do jogador
-
-Explique o que o jogador precisa fazer para vencer ou avançar no jogo.
-
-Exemplo:
-
-> O objetivo é coletar a maior quantidade possível de itens antes que o tempo acabe, evitando colisões com os obstáculos.
-
-## Regras do jogo
-
-Liste as principais regras do jogo.
-
-Exemplo:
-
-- O jogador se movimenta usando as setas do teclado.
-- Cada item coletado aumenta a pontuação.
-- Colidir com um obstáculo reduz a quantidade de vidas.
-- A partida termina quando o jogador perde todas as vidas ou quando o tempo acaba.
-
-## Controles
-
-Informe as teclas ou comandos utilizados no jogo.
-
-Exemplo:
-
-- Seta para cima: mover para cima
-- Seta para baixo: mover para baixo
-- Seta para esquerda: mover para esquerda
-- Seta para direita: mover para direita
-- Espaço: realizar ação
-- ESC: sair do jogo
+- `docs/`: documentação do projeto, incluindo a proposta inicial (`docs/proposta.MD`).
 
 ## Como executar o projeto
 
-### 1. Clonar o repositório
+É necessário ter o **Python 3** instalado.
 
 ```bash
-git clone LINK_DO_REPOSITORIO
-cd NOME_DA_PASTA
+git clone https://github.com/Arthuurds/batalha-naval.git
+cd batalha-naval
 pip install -r requirements.txt
 python main.py
 ```
@@ -77,15 +71,14 @@ python main.py
 python -m pytest
 ```
 
-## Checklist mínimo para entrega
+## Andamento
 
-- Preencher este README com nome final, descrição real, regras e controles do jogo.
-- Atualizar `docs/proposta.MD` com a proposta do grupo.
-- Garantir que o jogo executa com `python main.py`.
-- Garantir que os testes passam com `pytest`.
-
-## Observações para os alunos
-
-- Mantenham o código organizado em módulos pequenos e com responsabilidade clara.
-- Comentem partes importantes da lógica, principalmente regras do jogo.
-- Registrem decisões técnicas no README do grupo ao longo do desenvolvimento.
+- [x] Repositório criado a partir do template da disciplina
+- [x] Proposta inicial (`docs/proposta.MD`)
+- [ ] Tabuleiros e posicionamento da frota
+- [ ] Turnos, tiros e detecção de navio afundado
+- [ ] CPU nível fácil
+- [ ] Telas de vitória/derrota e estatísticas
+- [ ] Ranking salvo em `data/ranking.txt`
+- [ ] CPU nível médio
+- [ ] Testes das regras do jogo
