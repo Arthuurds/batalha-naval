@@ -165,3 +165,115 @@ def casa_de_navio_afundado(tabuleiro, linha, coluna):
     if indice == AGUA:
         return False
     return navio_afundado(tabuleiro["navios"][indice])
+
+
+# ---------------------------------------------------------------------------
+# Posicionamento manual dos navios (melhoria 1 da proposta)
+#
+# O estado do posicionamento é um dicionário com:
+# - "frota": lista de tuplas (nome, tamanho), na ordem em que serão colocados;
+# - "indice": qual navio da frota é a vez de colocar;
+# - "horizontal": True para horizontal, False para vertical (tecla R gira).
+#
+# No jogo.py:
+# - para desenhar a "sombra" do navio sob o mouse: previa_posicionamento();
+# - no clique: confirmar_posicionamento();
+# - na tecla R: girar_navio().
+# ---------------------------------------------------------------------------
+
+def criar_posicionamento(frota):
+    """Cria o estado do posicionamento manual para a frota informada."""
+    return {
+        "frota": list(frota),
+        "indice": 0,
+        "horizontal": True,
+    }
+
+
+def posicionamento_concluido(posicionamento):
+    """Indica se todos os navios da frota já foram colocados."""
+    return posicionamento["indice"] >= len(posicionamento["frota"])
+
+
+def navio_atual(posicionamento):
+    """Retorna a tupla (nome, tamanho) do navio da vez, ou None se já acabou."""
+    if posicionamento_concluido(posicionamento):
+        return None
+    return posicionamento["frota"][posicionamento["indice"]]
+
+
+def girar_navio(posicionamento):
+    """Alterna o navio da vez entre horizontal e vertical."""
+    posicionamento["horizontal"] = not posicionamento["horizontal"]
+
+
+def previa_posicionamento(tabuleiro, posicionamento, linha, coluna):
+    """Mostra onde o navio da vez ficaria se fosse colocado em (linha, coluna).
+
+    Retorna uma tupla (casas, valido):
+    - casas: as casas que o navio ocuparia, só as que estão dentro do tabuleiro;
+    - valido: True se o navio pode ser colocado ali (desenhar em verde)
+      ou False se não pode (desenhar em vermelho).
+    """
+    atual = navio_atual(posicionamento)
+    if atual is None:
+        return [], False
+
+    _, tamanho = atual
+    horizontal = posicionamento["horizontal"]
+
+    casas = []
+    for l, c in calcular_casas(linha, coluna, tamanho, horizontal):
+        if dentro_do_tabuleiro(tabuleiro, l, c):
+            casas.append((l, c))
+
+    valido = posicao_valida(tabuleiro, linha, coluna, tamanho, horizontal)
+    return casas, valido
+
+
+def confirmar_posicionamento(tabuleiro, posicionamento, linha, coluna):
+    """Coloca o navio da vez em (linha, coluna) e passa para o próximo.
+
+    Retorna True se conseguiu colocar. Se a posição for inválida, nada muda.
+    """
+    atual = navio_atual(posicionamento)
+    if atual is None:
+        return False
+
+    nome, tamanho = atual
+    colocado = posicionar_navio(tabuleiro, nome, linha, coluna, tamanho,
+                                posicionamento["horizontal"])
+    if colocado:
+        posicionamento["indice"] += 1
+    return colocado
+
+
+def remover_ultimo_navio(tabuleiro):
+    """Tira do tabuleiro o último navio colocado. Retorna o navio ou None.
+
+    Só deve ser usado antes de a partida começar (sem tiros).
+    """
+    if not tabuleiro["navios"]:
+        return None
+
+    navio = tabuleiro["navios"].pop()
+    for l, c in navio["casas"]:
+        tabuleiro["grade"][l][c] = AGUA
+    return navio
+
+
+def desfazer_posicionamento(tabuleiro, posicionamento):
+    """Volta um passo: remove o último navio colocado. Retorna True se voltou."""
+    if posicionamento["indice"] == 0:
+        return False
+
+    remover_ultimo_navio(tabuleiro)
+    posicionamento["indice"] -= 1
+    return True
+
+
+def completar_aleatorio(tabuleiro, posicionamento, gerador=random):
+    """Posiciona aleatoriamente os navios que ainda faltam."""
+    faltando = posicionamento["frota"][posicionamento["indice"]:]
+    posicionar_frota_aleatoria(tabuleiro, faltando, gerador)
+    posicionamento["indice"] = len(posicionamento["frota"])
