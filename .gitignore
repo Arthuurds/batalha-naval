@@ -1,0 +1,14 @@
+# Arquivos gerados automaticamente pelo Python e pelo pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Ambientes virtuais e configuracoes de editor
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
