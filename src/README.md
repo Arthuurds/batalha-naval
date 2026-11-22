@@ -4,12 +4,11 @@ Esta pasta contém os módulos principais do jogo.
 
 ## Arquivos
 
-- `jogo.py`: loop principal, eventos, atualização e renderização.
-- `config.py`: constantes globais (tela, cores, caminhos, FPS).
-- `funcoes.py`: funções auxiliares de regra e lógica.
-- `sprites.py`: carregamento e recorte de spritesheet.
-- `dados.py`: leitura e gravação de dados (recorde/ranking).
-
-## Dica de evolução
-
-Quando o projeto crescer, mantenha módulos pequenos e separados por responsabilidade.
+- `jogo.py`: loop principal, eventos, atualização e desenho na tela.
+- `config.py`: constantes globais (tela, tabuleiro, frota, regras da IA, pontuação, cores, caminhos).
+- `tabuleiro.py`: regras do tabuleiro (posicionar navios, atirar, navio afundado, fim de jogo).
+- `assistente.py`: Radar IA simulado (sugestão, confiança, sonar e histórico de acertos).
+- `cpu.py`: escolha do tiro da CPU.
+- `funcoes.py`: funções auxiliares de regra e lógica (pontuação, conversão de clique, precisão).
+- `dados.py`: leitura e gravação de dados (recorde e ranking).
+- `sprites.py`: carregamento e recorte de spritesheet (do template, ainda não usado).
