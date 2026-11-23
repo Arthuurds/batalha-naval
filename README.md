@@ -94,12 +94,22 @@ python -m pytest
 - [Pygame](https://www.pygame.org/) (licença LGPL) e [pytest](https://pytest.org/) (licença MIT).
 - Fonte padrão do Pygame. Nenhuma imagem, som ou fonte externa foi usada até agora: tudo é desenhado com formas geométricas.
 
+## Divisão do trabalho
+
+| Integrante | Frente |
+|------------|--------|
+| Arthur Filipe Silva Dornas | Repositório, documentação e interface das melhorias (menu, posicionamento manual, sons) |
+| Diego Emanuel Oliveira Marques | Regras do tabuleiro e CPU (`src/tabuleiro.py`, `src/cpu.py`) |
+| Wyatt Nicolas Sperber Lopes de Carvalho | Protótipo, Radar IA, pontuação e dados (`src/jogo.py`, `src/assistente.py`, `src/funcoes.py`, `src/dados.py`, `tests/`) |
+
+O detalhamento (o que cada um entregou e as próximas tarefas) está na seção 18 de `docs/proposta.MD`.
+
 ## Andamento
 
 - [x] Proposta inicial (`docs/proposta.MD`)
-- [x] **PC02:** janela, loop principal, tabuleiros, tiros pelo mouse, CPU, Radar IA com sonar e penalidade, vitória/derrota, recorde e testes
-- [ ] Posicionamento manual dos navios
-- [ ] CPU nível médio e menu inicial
+- [x] **PC04 (Semana 2 – protótipo executável):** janela do Pygame, loop principal, controles (mouse, ESPAÇO, V, R, ESC), tabuleiros, tiros, CPU, Radar IA com sonar e penalidade (mecânica temática), vitória/derrota, recorde e testes com `pytest`
 - [x] Ranking com nome do jogador (top 5 em arquivo)
 - [x] Equilíbrio da IA: confiança superconfiante, histórico de acertos visível e sonar extra ao afundar navio
+- [ ] Posicionamento manual dos navios (lógica pronta em `src/tabuleiro.py`, falta a tela no jogo)
+- [ ] CPU nível médio (lógica pronta em `src/cpu.py`) e menu inicial para escolher a dificuldade
 - [ ] Sons
