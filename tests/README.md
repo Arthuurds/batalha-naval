@@ -1,18 +1,16 @@
 # Testes
 
-Esta pasta contem testes automatizados do projeto.
+Esta pasta contém os testes automatizados do projeto.
 
 ## Arquivos
 
-- `test_logica.py`: valida funcoes puras de logica em `src/funcoes.py`.
+- `test_tabuleiro.py`: regras do tabuleiro em `src/tabuleiro.py` (posicionar, atirar, afundar, fim de jogo).
+- `test_assistente.py`: Radar IA em `src/assistente.py` (sugestão, confiança, sonar, histórico).
+- `test_logica.py`: funções auxiliares em `src/funcoes.py` (pontuação, conversão de clique, precisão).
+- `test_dados.py`: recorde e ranking em `src/dados.py`.
 
 ## Como executar
 
 ```bash
 python -m pytest
 ```
-
-## Boas praticas
-
-- Crie testes para toda regra de pontuacao, vidas e condicoes de fim de jogo.
-- Prefira funcoes pequenas e testaveis no modulo `src/funcoes.py`.
