@@ -55,7 +55,7 @@ Proposta do grupo para o projeto final, desenvolvido com **Python e Pygame**.
 
 **Condição de vitória:**
 
-> O jogador vence ao afundar os 5 navios da CPU. Se a pontuação superar o recorde, ela é salva em `data/recorde.txt`.
+> O jogador vence ao afundar os 5 navios da CPU. Ao fim de qualquer partida, vitória ou derrota, se a pontuação superar o recorde, ela é salva em `data/recorde.txt`.
 
 ## 9. Condição de derrota ou encerramento
 

@@ -39,7 +39,7 @@ Afundar os 5 navios da CPU antes que ela afunde os seus, fazendo a maior pontua�
 - Seguir a sugestão da IA **sem verificar** e cair na água: **−10 pontos**.
 - O sonar tem **3 usos**; afundar um navio devolve 1 uso (máximo de 3).
 - **Vitória:** afundar toda a frota da CPU. **Derrota:** ter toda a sua frota afundada.
-- O recorde de pontos fica salvo em `data/recorde.txt`.
+- O recorde de pontos fica salvo em `data/recorde.txt` ao fim de qualquer partida (vitória ou derrota).
 - Se a pontuação entrar no top 5, você digita seu nome e o resultado vai para `data/ranking.txt` (desempate pela precisão).
 
 ## Controles
