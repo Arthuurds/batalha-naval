@@ -39,7 +39,7 @@ Afundar os 5 navios da CPU antes que ela afunde os seus, fazendo a maior pontua�
 - Seguir a sugestão da IA **sem verificar** e cair na água: **−10 pontos**.
 - O sonar tem **3 usos**; afundar um navio devolve 1 uso (máximo de 3).
 - **Vitória:** afundar toda a frota da CPU. **Derrota:** ter toda a sua frota afundada.
-- O recorde de pontos fica salvo em `data/recorde.txt`.
+- O recorde de pontos fica salvo em `data/recorde.txt` ao fim de qualquer partida (vitória ou derrota).
 - Se a pontuação entrar no top 5, você digita seu nome e o resultado vai para `data/ranking.txt` (desempate pela precisão).
 
 ## Controles
@@ -94,12 +94,22 @@ python -m pytest
 - [Pygame](https://www.pygame.org/) (licença LGPL) e [pytest](https://pytest.org/) (licença MIT).
 - Fonte padrão do Pygame. Nenhuma imagem, som ou fonte externa foi usada até agora: tudo é desenhado com formas geométricas.
 
+## Divisão do trabalho
+
+| Integrante | Frente |
+|------------|--------|
+| Arthur Filipe Silva Dornas | Repositório, documentação e interface das melhorias (menu, posicionamento manual, sons) |
+| Diego Emanuel Oliveira Marques | Regras do tabuleiro e CPU (`src/tabuleiro.py`, `src/cpu.py`) |
+| Wyatt Nicolas Sperber Lopes de Carvalho | Protótipo, Radar IA, pontuação e dados (`src/jogo.py`, `src/assistente.py`, `src/funcoes.py`, `src/dados.py`, `tests/`) |
+
+O detalhamento (o que cada um entregou e as próximas tarefas) está na seção 18 de `docs/proposta.MD`.
+
 ## Andamento
 
 - [x] Proposta inicial (`docs/proposta.MD`)
-- [x] **PC02:** janela, loop principal, tabuleiros, tiros pelo mouse, CPU, Radar IA com sonar e penalidade, vitória/derrota, recorde e testes
-- [ ] Posicionamento manual dos navios
-- [ ] CPU nível médio e menu inicial
+- [x] **PC04 (Semana 2 – protótipo executável):** janela do Pygame, loop principal, controles (mouse, ESPAÇO, V, R, ESC), tabuleiros, tiros, CPU, Radar IA com sonar e penalidade (mecânica temática), vitória/derrota, recorde e testes com `pytest`
 - [x] Ranking com nome do jogador (top 5 em arquivo)
 - [x] Equilíbrio da IA: confiança superconfiante, histórico de acertos visível e sonar extra ao afundar navio
+- [ ] Posicionamento manual dos navios (lógica pronta em `src/tabuleiro.py`, falta a tela no jogo)
+- [ ] CPU nível médio (lógica pronta em `src/cpu.py`) e menu inicial para escolher a dificuldade
 - [ ] Sons
