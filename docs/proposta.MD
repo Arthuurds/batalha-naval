@@ -1,7 +1,7 @@
 # Proposta Inicial do Jogo
 
 Proposta do grupo para o projeto final, desenvolvido com **Python e Pygame**.
-*Atualizada no ponto de controle 04 (Semana 2 – protótipo inicial executável): tema definido, mecânica do Radar IA incluída, controles ajustados ao protótipo, ranking com nome, equilíbrio da IA (confiança superconfiante, histórico de acertos e sonar extra), lógica da CPU nível médio e do posicionamento manual, e divisão de tarefas (seção 18).*
+*Atualizada no ponto de controle 02 (Semana 2 – protótipo inicial executável): tema definido, mecânica do Radar IA incluída, controles ajustados ao protótipo, ranking com nome, equilíbrio da IA (confiança superconfiante, histórico de acertos e sonar extra), lógica da CPU nível médio e do posicionamento manual, e divisão de tarefas (seção 18).*
 
 ## 1. Nome provisório do jogo
 
@@ -124,8 +124,8 @@ Declaramos que este projeto é de autoria do grupo, desenvolvido a partir do tem
 
 O trabalho foi dividido em três frentes, uma por integrante. A integração é feita pelo GitHub, com uma branch e um pull request para cada parte.
 
-| Integrante | Frente | Arquivos principais | Entregue até o PC04 | Próximas tarefas |
+| Integrante | Frente | Arquivos principais | Entregue até o PC02 | Próximas tarefas |
 |------------|--------|---------------------|---------------------|------------------|
-| Arthur Filipe Silva Dornas | Repositório, documentação e interface das melhorias | `README.md`, `docs/`, READMEs das pastas | Criação do repositório a partir do template, proposta e README atualizados para o PC04, organização da divisão de tarefas | Menu inicial com escolha de dificuldade, tela de posicionamento manual no `jogo.py`, sons de tiro e explosão |
+| Arthur Filipe Silva Dornas | Repositório, documentação e interface das melhorias | `README.md`, `docs/`, READMEs das pastas | Criação do repositório a partir do template, proposta e README atualizados para o PC02, organização da divisão de tarefas | Menu inicial com escolha de dificuldade, tela de posicionamento manual no `jogo.py`, sons de tiro e explosão |
 | Diego Emanuel Oliveira Marques | Regras do tabuleiro e CPU | `src/tabuleiro.py`, `src/cpu.py` | CPU nível médio (ataca vizinhas após acerto) e lógica do posicionamento manual (girar, desfazer, completar aleatório) | Testes da CPU média e do posicionamento manual |
 | Wyatt Nicolas Sperber Lopes de Carvalho | Protótipo, Radar IA, pontuação e dados | `src/jogo.py`, `src/assistente.py`, `src/funcoes.py`, `src/dados.py`, `tests/` | Janela e loop principal, Radar IA com sonar e penalidade, histórico da IA, ranking com nome, equilíbrio da IA, recorde e testes | Ajustes finais de equilíbrio da IA e testes |

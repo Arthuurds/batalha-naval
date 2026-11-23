@@ -107,7 +107,7 @@ O detalhamento (o que cada um entregou e as próximas tarefas) está na seção 
 ## Andamento
 
 - [x] Proposta inicial (`docs/proposta.MD`)
-- [x] **PC04 (Semana 2 – protótipo executável):** janela do Pygame, loop principal, controles (mouse, ESPAÇO, V, R, ESC), tabuleiros, tiros, CPU, Radar IA com sonar e penalidade (mecânica temática), vitória/derrota, recorde e testes com `pytest`
+- [x] **PC02 (Semana 2 – protótipo executável):** janela do Pygame, loop principal, controles (mouse, ESPAÇO, V, R, ESC), tabuleiros, tiros, CPU, Radar IA com sonar e penalidade (mecânica temática), vitória/derrota, recorde e testes com `pytest`
 - [x] Ranking com nome do jogador (top 5 em arquivo)
 - [x] Equilíbrio da IA: confiança superconfiante, histórico de acertos visível e sonar extra ao afundar navio
 - [ ] Posicionamento manual dos navios (lógica pronta em `src/tabuleiro.py`, falta a tela no jogo)
